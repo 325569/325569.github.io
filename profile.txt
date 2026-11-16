@@ -15,7 +15,7 @@ expertise=Marketing Intelligence, Digital Marketing, Data Analytics, Market Rese
 education=M. Sc. Marketing Intelligence, Hochschule Pforzheim, DE
 
 email=rfleischer164@gmail.com
-linkedin=
+linkedin=https://www.linkedin.com/in/ramona-fleischer-65a129408/
 
 about1=Ramona Fleischer is currently pursuing her Master of Science in Marketing Intelligence at Pforzheim University, Germany.
 about2=Her academic focus lies on data-driven marketing strategies, consumer insights, and digital analytics.
