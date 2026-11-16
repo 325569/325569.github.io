@@ -4,24 +4,24 @@
 # Lines starting with # are comments and are ignored.
 # ============================================================
 
-name=Prof. Pin Luarn
+name=Ramona Fleischer
 
-title1=Top 2% Scientist Worldwide (2020-2026)
+title1=Master's Student in Marketing Intelligence
 
-title2=2024 National Teaching Award Laureate
+title2=Hochschule Pforzheim (Pforzheim University)
 
-expertise=Internet Marketing, AI Applications, Agentic AI
+expertise=Marketing Intelligence, Digital Marketing, Data Analytics, Market Research
 
-education=Ph.D. in Industrial Engineering, University of Wisconsin-Madison, USA
+education=M. Sc. Marketing Intelligence, Hochschule Pforzheim, DE
 
-email=luarn@mail.ntust.edu.tw
-linkedin=https://pse.is/8nn88y
+email=rfleischer164@gmail.com
+linkedin=
 
-about1=Prof. Luarn earned his B.S. in Industrial Engineering from Tunghai University,
-about2=and his M.S. and Ph.D. in Industrial Engineering from the University of Wisconsin-Madison.
-about3=Named among the world's top 2% scientists by Stanford University & Elsevier for seven consecutive years (2020-2026).
-about4=Recipient of the 2024 Presidential National Teaching Award, Taiwan
+about1=Ramona Fleischer is currently pursuing her Master of Science in Marketing Intelligence at Pforzheim University, Germany.
+about2=Her academic focus lies on data-driven marketing strategies, consumer insights, and digital analytics.
+about3=Prior to her Master's program, she earned her Bachelor's degree in Business Administration with a focus on Media Management and Advertising Psychology, including an international exchange semester.
+about4=Alongside her studies, she gains practical experience in e-commerce, online shop management, and inventory coordination.
 
-phone=+886-2-2737-6754
+phone=+49-1764-6290-6142
 
-location=T2-409, National Taiwan University of Science and Technology, No. 43, Sec. 4, Keelung Rd., Taipei, Taiwan
+location=Hochschule Pforzheim, Tiefenbronner Str. 65, 75175 Pforzheim, Germany
