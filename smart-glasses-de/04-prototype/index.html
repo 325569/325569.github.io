@@ -1,478 +1,388 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AuraVision G1 — Smart Glasses for the German Market</title>
-  <style>
-    /* Reset and Base Styles */
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      line-height: 1.6;
-      color: #1a1a1a;
-      background-color: #f8fafc;
-    }
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Sichtwort: Arbeitsanweisungen, Checklisten und Live-Übersetzung im Sichtfeld – auf Smart Glasses ohne Kamera. Für mehrsprachige Teams in der Produktion. Pilotphase.">
+<title>Sichtwort – Verstehen. Nicht filmen.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@600;700&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/*
+VOICE: sachlich, ruhig, wie eine gute Betriebsanweisung – kein Tech-Hype.
+IDEA: die Seite verhält sich wie der Blick durch die Brille an der Linie: ein Arbeitsschritt, klar lesbar.
+PICTURE: Sichtfeld über einem Abfüllband, darin das grüne HUD mit dem aktuellen Schritt, umschaltbar in sechs Sprachen.
+COLOUR and TYPE: Hygieneblau als Fläche, Edelstahlgrau, HUD-Grün nur im Display; Barlow Semi Condensed + Barlow (Beschilderungs-Anmutung).
+LAYOUT: Titel oben über volle Breite, darunter das große Sichtfeld; dann Nutzen, Funktionen, zwei Zielgruppen, Anfrageformular.
+*/
+:root{color-scheme:light dark;
+  --bg:light-dark(#f3f5f7,#0e141c);--ink:light-dark(#14202b,#e6ecf2);--muted:light-dark(#4b5a68,#a7b4c1);
+  --card:light-dark(#ffffff,#16202b);--line:light-dark(#d9e0e6,#263443);
+  --blue:#1652c4;--blue-deep:#0d3a8f;--steel:light-dark(#e6eaee,#1b2631);--hud:#45e08f;--focus:#ffb703}
+:root[data-theme=light]{color-scheme:light}:root[data-theme=dark]{color-scheme:dark}
+*{box-sizing:border-box;min-width:0}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 Barlow,"Segoe UI",Arial,sans-serif;overflow-x:clip}
+h1,h2,h3{font-family:"Barlow Semi Condensed",Barlow,Arial,sans-serif;line-height:1.05;text-wrap:balance;margin:0}
+h1{font-size:clamp(34px,5.4vw,52px)}h2{font-size:clamp(28px,3.6vw,38px)}h3{font-size:21px;line-height:1.2}
+p{margin:0}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--focus);outline-offset:2px}
+.wrap{max-width:1240px;margin:0 auto}
+.band{padding:clamp(28px,4vw,64px) max(5vw,16px)}
 
-    /* Container */
-    .container {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 0 24px;
-    }
+/* Kopfzeile mit Mobil-Menü */
+header{position:sticky;top:0;z-index:20;background:var(--blue-deep);color:#fff}
+.bar{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:10px max(5vw,16px);max-width:1240px;margin:0 auto}
+.brand{font:700 22px "Barlow Semi Condensed",Arial,sans-serif;text-decoration:none;display:flex;align-items:center;gap:10px}
+.brand svg{flex:none}
+nav ul{list-style:none;margin:0;padding:0;display:flex;gap:6px;align-items:center}
+nav a{display:inline-flex;align-items:center;min-height:44px;padding:0 12px;text-decoration:none;border-radius:8px;font-weight:500}
+nav a:hover{background:rgba(255,255,255,.12)}
+nav a.cta{background:#fff;color:var(--blue-deep);font-weight:600}
+.menu{display:none;min-height:44px;min-width:44px;border:1px solid rgba(255,255,255,.4);background:transparent;color:#fff;border-radius:8px;font:600 15px Barlow,Arial,sans-serif;padding:0 12px}
+@media(max-width:760px){
+  .menu{display:inline-flex;align-items:center}
+  nav{position:absolute;left:0;right:0;top:100%;background:var(--blue-deep);display:none;padding:8px max(5vw,16px) 16px;border-top:1px solid rgba(255,255,255,.15)}
+  nav.open{display:block}
+  nav ul{flex-direction:column;align-items:stretch}
+  nav a{width:100%}
+}
 
-    /* Navigation Bar */
-    header {
-      background-color: #ffffff;
-      border-bottom: 1px solid #e2e8f0;
-      position: sticky;
-      top: 0;
-      z-index: 100;
-    }
-    .nav-inner {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      height: 70px;
-    }
-    .logo {
-      font-size: 1.25rem;
-      font-weight: 700;
-      letter-spacing: -0.5px;
-      color: #0f172a;
-    }
-    .logo span {
-      color: #059669;
-    }
-    .nav-cta {
-      background-color: #0f172a;
-      color: #ffffff;
-      padding: 10px 20px;
-      border-radius: 6px;
-      font-size: 0.9rem;
-      font-weight: 600;
-      transition: background-color 0.2s;
-    }
-    .nav-cta:hover {
-      background-color: #1e293b;
-    }
+/* Hero */
+.hero{background:var(--blue);color:#fff}
+.hero .wrap{display:grid;gap:28px}
+.eyebrow{font-weight:600;font-size:15px;color:#d6e3ff}
+.intro{display:grid;gap:12px 48px;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);align-items:end}
+.hero h1{margin-top:8px}
+.sub{font-size:17px;max-width:62ch;color:#e8efff}
+@media(max-width:900px){.intro{grid-template-columns:minmax(0,1fr)}}
+.btns{display:flex;flex-wrap:wrap;gap:12px;margin-top:22px}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 22px;border-radius:10px;font:600 16px Barlow,Arial,sans-serif;text-decoration:none;cursor:pointer;border:2px solid transparent}
+.btn.solid{background:#fff;color:var(--blue-deep)}
+.btn.ghost{border-color:rgba(255,255,255,.7);color:#fff;background:transparent}
+.btn.primary{background:var(--blue);color:#fff}
+.btn.outline{border-color:var(--blue);color:var(--blue);background:transparent}
+:root[data-theme=dark] .btn.outline{color:#9cbcff;border-color:#9cbcff}
+@media(prefers-color-scheme:dark){:root:not([data-theme=light]) .btn.outline{color:#9cbcff;border-color:#9cbcff}}
 
-    /* Hero Section */
-    .hero {
-      padding: 80px 0 60px;
-      text-align: center;
-      background: linear-gradient(180deg, #ffffff 0%, #f1f5f9 100%);
-      border-bottom: 1px solid #e2e8f0;
-    }
-    .badge {
-      display: inline-block;
-      padding: 6px 14px;
-      background-color: #ecfdf5;
-      color: #065f46;
-      border: 1px solid #a7f3d0;
-      border-radius: 9999px;
-      font-size: 0.85rem;
-      font-weight: 600;
-      margin-bottom: 24px;
-      letter-spacing: 0.3px;
-    }
-    .hero h1 {
-      font-size: 2.75rem;
-      line-height: 1.2;
-      font-weight: 800;
-      color: #0f172a;
-      max-width: 850px;
-      margin: 0 auto 20px;
-      letter-spacing: -1px;
-    }
-    .hero p {
-      font-size: 1.2rem;
-      color: #475569;
-      max-width: 720px;
-      margin: 0 auto 36px;
-    }
-    .hero-actions {
-      display: flex;
-      justify-content: center;
-      gap: 16px;
-      flex-wrap: wrap;
-    }
-    .btn-primary {
-      background-color: #059669;
-      color: #ffffff;
-      padding: 14px 28px;
-      border-radius: 8px;
-      font-weight: 600;
-      font-size: 1rem;
-      box-shadow: 0 4px 12px rgba(5, 150, 105, 0.25);
-      transition: all 0.2s;
-    }
-    .btn-primary:hover {
-      background-color: #047857;
-      transform: translateY(-1px);
-    }
-    .btn-secondary {
-      background-color: #ffffff;
-      color: #1e293b;
-      padding: 14px 28px;
-      border-radius: 8px;
-      font-weight: 600;
-      font-size: 1rem;
-      border: 1px solid #cbd5e1;
-      transition: background-color 0.2s;
-    }
-    .btn-secondary:hover {
-      background-color: #f8fafc;
-    }
+/* Sichtfeld */
+.view{position:relative;border-radius:22px;overflow:hidden;background:#26323d;box-shadow:0 24px 60px rgba(4,20,60,.35)}
+.scene{position:relative;min-height:clamp(300px,42vw,470px)}
+.scene>svg{position:absolute;inset:0;width:100%;height:100%}
+.hud{position:absolute;left:50%;top:44%;transform:translate(-50%,-50%);width:min(560px,86%);padding:18px 22px;border-radius:14px;background:rgba(4,22,14,.55);border:1px solid rgba(69,224,143,.45);color:var(--hud);font:600 clamp(17px,2.4vw,24px)/1.3 "Barlow Semi Condensed",Arial,sans-serif;text-shadow:0 0 12px rgba(69,224,143,.45);backdrop-filter:blur(2px)}
+.hud small{display:block;font:500 14px Barlow,Arial,sans-serif;opacity:.85;margin-bottom:6px;letter-spacing:.02em}
+.hud .next{display:block;font-size:.78em;opacity:.8;margin-top:8px}
+.tags{position:absolute;left:16px;right:16px;bottom:14px;display:flex;flex-wrap:wrap;gap:8px;justify-content:space-between;align-items:center}
+.nocam{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.92);color:#14202b;border-radius:999px;padding:6px 12px;font-weight:600;font-size:14px}
+.langs{display:flex;flex-wrap:wrap;gap:6px}
+.langs button{min-height:44px;min-width:44px;padding:0 12px;border-radius:999px;border:1px solid rgba(255,255,255,.55);background:rgba(10,20,30,.55);color:#fff;font:600 14px Barlow,Arial,sans-serif;cursor:pointer}
+.langs button[aria-pressed=true]{background:#fff;color:#14202b}
+.sample{font-size:13px;color:#d6e3ff;margin-top:8px}
+@media(max-width:600px){.tags{position:static;padding:12px;background:#1e2933}.scene{min-height:300px}}
 
-    /* Key Specs Bar */
-    .specs-bar {
-      padding: 30px 0;
-      background-color: #ffffff;
-      border-bottom: 1px solid #e2e8f0;
-    }
-    .specs-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 20px;
-      text-align: center;
-    }
-    .spec-item h4 {
-      font-size: 1.4rem;
-      font-weight: 700;
-      color: #0f172a;
-    }
-    .spec-item p {
-      font-size: 0.9rem;
-      color: #64748b;
-      font-weight: 500;
-    }
+/* Pilot-Hinweis */
+.notice{background:var(--steel);border-bottom:1px solid var(--line)}
+.notice p{max-width:80ch;font-size:15px;color:var(--muted)}
+.notice strong{color:var(--ink)}
 
-    /* Selling Points Section */
-    .features {
-      padding: 80px 0;
-    }
-    .section-header {
-      text-align: center;
-      margin-bottom: 50px;
-    }
-    .section-header h2 {
-      font-size: 2.1rem;
-      font-weight: 700;
-      color: #0f172a;
-      margin-bottom: 12px;
-      letter-spacing: -0.5px;
-    }
-    .section-header p {
-      font-size: 1.1rem;
-      color: #64748b;
-      max-width: 600px;
-      margin: 0 auto;
-    }
-    .feature-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 28px;
-    }
-    .feature-card {
-      background-color: #ffffff;
-      border: 1px solid #e2e8f0;
-      border-radius: 12px;
-      padding: 36px 32px;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
-      transition: transform 0.2s, box-shadow 0.2s;
-    }
-    .feature-card:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
-    }
-    .feature-icon {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 44px;
-      height: 44px;
-      border-radius: 8px;
-      background-color: #f0fdf4;
-      color: #16a34a;
-      font-weight: 700;
-      font-size: 1.1rem;
-      margin-bottom: 18px;
-    }
-    .feature-card h3 {
-      font-size: 1.3rem;
-      font-weight: 700;
-      color: #0f172a;
-      margin-bottom: 12px;
-    }
-    .feature-card p {
-      color: #475569;
-      font-size: 0.98rem;
-      line-height: 1.6;
-    }
+/* Karten */
+.head{max-width:70ch;margin-bottom:28px}
+.head p{color:var(--muted);margin-top:10px;font-size:17px}
+.grid{display:grid;gap:16px;grid-template-columns:repeat(4,minmax(0,1fr))}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px}
+.card p{color:var(--muted);margin-top:8px}
+.card svg{display:block;margin-bottom:14px}
+.feat{display:grid;gap:0;border-top:1px solid var(--line)}
+.feat div{display:grid;grid-template-columns:minmax(0,15em) minmax(0,1fr);gap:16px;padding:16px 0;border-bottom:1px solid var(--line)}
+.feat dt{font:700 19px "Barlow Semi Condensed",Arial,sans-serif}
+.feat dd{margin:0;color:var(--muted)}
+.two{display:grid;gap:16px;grid-template-columns:repeat(2,minmax(0,1fr))}
+.who{border-radius:18px;padding:28px;border:1px solid var(--line);background:var(--card)}
+.who .lab{display:inline-block;font-weight:600;font-size:14px;padding:4px 10px;border-radius:999px;background:var(--steel);margin-bottom:12px}
+.who p{color:var(--muted);margin:12px 0 18px}
+.who .btns{margin-top:0}
+@media(max-width:900px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:600px){.grid,.two{grid-template-columns:minmax(0,1fr)}.feat div{grid-template-columns:minmax(0,1fr);gap:4px}}
 
-    /* Comparison Table Section */
-    .comparison {
-      padding: 60px 0 80px;
-      background-color: #ffffff;
-      border-top: 1px solid #e2e8f0;
-      border-bottom: 1px solid #e2e8f0;
-    }
-    .table-wrapper {
-      overflow-x: auto;
-      margin-top: 36px;
-    }
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      text-align: left;
-    }
-    th, td {
-      padding: 16px 20px;
-      border-bottom: 1px solid #e2e8f0;
-      font-size: 0.95rem;
-    }
-    th {
-      background-color: #f8fafc;
-      font-weight: 700;
-      color: #0f172a;
-    }
-    tr.highlight {
-      background-color: #f0fdf4;
-      font-weight: 600;
-    }
-    tr.highlight td {
-      color: #065f46;
-      border-color: #bbf7d0;
-    }
+/* Formular */
+.formband{background:var(--steel)}
+form{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:clamp(20px,3vw,32px);max-width:760px}
+.seg{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 18px;padding:0;border:0}
+.seg legend{font-weight:600;margin-bottom:8px}
+.seg label{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 14px;border:1px solid var(--line);border-radius:10px;cursor:pointer}
+.seg input{width:18px;height:18px;accent-color:var(--blue)}
+.fields{display:grid;gap:14px;grid-template-columns:repeat(2,minmax(0,1fr))}
+.fields .full{grid-column:1/-1}
+label.f{display:grid;gap:6px;font-weight:600;font-size:15px}
+input[type=text],input[type=email],select,textarea{font:16px Barlow,Arial,sans-serif;min-height:44px;padding:10px 12px;border-radius:10px;border:1px solid var(--line);background:var(--bg);color:var(--ink);width:100%}
+textarea{min-height:96px;resize:vertical}
+.hint{font-size:13px;color:var(--muted);margin-top:12px}
+.ok{display:none;margin-top:16px;padding:14px 16px;border-radius:12px;background:light-dark(#e7f7ee,#123222);border:1px solid light-dark(#9fdcb9,#2f7a52)}
+.ok.show{display:block}
+.err{color:light-dark(#a1261b,#ff8a7f);font-size:14px;margin-top:10px;min-height:1em}
+@media(max-width:600px){.fields{grid-template-columns:minmax(0,1fr)}}
 
-    /* CTA Section */
-    .cta-section {
-      padding: 80px 0;
-      text-align: center;
-      background-color: #0f172a;
-      color: #ffffff;
-    }
-    .cta-box h2 {
-      font-size: 2.25rem;
-      font-weight: 800;
-      margin-bottom: 16px;
-      letter-spacing: -0.5px;
-    }
-    .cta-box p {
-      font-size: 1.15rem;
-      color: #94a3b8;
-      max-width: 600px;
-      margin: 0 auto 36px;
-    }
-    .cta-box .btn-primary {
-      padding: 16px 36px;
-      font-size: 1.1rem;
-    }
-
-    /* Footer */
-    footer {
-      background-color: #090d16;
-      color: #64748b;
-      padding: 40px 0;
-      font-size: 0.88rem;
-      border-top: 1px solid #1e293b;
-    }
-    .footer-inner {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 16px;
-    }
-    .footer-note {
-      color: #94a3b8;
-    }
-
-    /* Mobile Responsive */
-    @media (max-width: 768px) {
-      .hero h1 {
-        font-size: 2rem;
-      }
-      .specs-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 16px;
-      }
-      .feature-grid {
-        grid-template-columns: 1fr;
-      }
-      .footer-inner {
-        flex-direction: column;
-        text-align: center;
-      }
-    }
-  </style>
+footer{background:var(--blue-deep);color:#d6e3ff;font-size:14px}
+footer .wrap{display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-between}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.hud{transition:none!important}}
+.hud{transition:opacity .25s ease}
+.hud.fade{opacity:0}
+</style>
 </head>
 <body>
 
-  <!-- Navigation Bar -->
-  <header>
-    <div class="container nav-inner">
-      <div class="logo">AuraVision <span>G1</span></div>
-      <a href="#preorder" class="nav-cta">Pre-Order</a>
+<header>
+  <div class="bar">
+    <a class="brand" href="#top" aria-label="Sichtwort, zum Seitenanfang">
+      <svg width="34" height="20" viewBox="0 0 34 20" aria-hidden="true"><rect x="1.5" y="3" width="13" height="12" rx="5" fill="none" stroke="#fff" stroke-width="2.5"/><rect x="19.5" y="3" width="13" height="12" rx="5" fill="none" stroke="#fff" stroke-width="2.5"/><path d="M14.5 8h5" stroke="#fff" stroke-width="2.5"/><path d="M22.5 9h7" stroke="#45e08f" stroke-width="2.5" stroke-linecap="round"/></svg>
+      Sichtwort
+    </a>
+    <button class="menu" id="menuBtn" aria-expanded="false" aria-controls="mainNav">Menü</button>
+    <nav id="mainNav" aria-label="Hauptnavigation">
+      <ul>
+        <li><a href="#nutzen">Nutzen</a></li>
+        <li><a href="#funktionen">Funktionen</a></li>
+        <li><a href="#fuer-wen">Für wen</a></li>
+        <li><a href="#anfrage" class="cta" data-type="pilot">Pilotplatz anfragen</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero band">
+    <div class="wrap">
+      <div class="intro">
+        <div>
+          <p class="eyebrow">Kamerafreie Smart Glasses für die Produktion</p>
+          <h1>Jede Anweisung verstanden. In jeder Sprache. Ohne Kamera.</h1>
+        </div>
+        <div>
+        <p class="sub">Sichtwort bringt Arbeitsanweisungen, Checklisten und Live-Übersetzung direkt ins Sichtfeld Ihrer Mitarbeitenden – auf Brillen ohne Kamera. Die Hände bleiben frei, niemand wird gefilmt, und Ihre Daten bleiben in der EU.</p>
+        <div class="btns">
+          <a class="btn solid" href="#anfrage" data-type="pilot">Pilotplatz anfragen</a>
+          <a class="btn ghost" href="#anfrage" data-type="unterlagen">Unterlagen für Betriebsrat &amp; Datenschutz</a>
+        </div>
+        </div>
+      </div>
+
+      <figure style="margin:0">
+        <div class="view" id="view">
+          <div class="scene">
+          <svg viewBox="0 0 1200 520" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+            <defs>
+              <linearGradient id="hall" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#5d6f7f"/><stop offset=".55" stop-color="#3b4955"/><stop offset="1" stop-color="#222c35"/></linearGradient>
+              <linearGradient id="belt" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#9aa6b0"/><stop offset="1" stop-color="#58646e"/></linearGradient>
+              <radialGradient id="lamp" cx=".5" cy="0" r=".9"><stop offset="0" stop-color="#fff" stop-opacity=".35"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient>
+              <g id="jar"><rect x="-26" y="-74" width="52" height="74" rx="10" fill="#cfe3ee" opacity=".9"/><rect x="-26" y="-74" width="52" height="74" rx="10" fill="none" stroke="#fff" stroke-opacity=".5"/><rect x="-22" y="-92" width="44" height="20" rx="4" fill="#1652c4"/><rect x="-20" y="-50" width="40" height="22" rx="3" fill="#f5f7f9"/><rect x="-6" y="-70" width="6" height="56" rx="3" fill="#fff" opacity=".35"/></g>
+              <g id="lampG"><rect x="-70" y="0" width="140" height="10" rx="5" fill="#e9eef2"/><ellipse cx="0" cy="120" rx="160" ry="130" fill="url(#lamp)"/></g>
+            </defs>
+            <rect width="1200" height="520" fill="url(#hall)"/>
+            <g opacity=".5"><rect x="0" y="120" width="1200" height="6" fill="#7e8d99"/><rect x="80" y="40" width="22" height="260" fill="#4a5864"/><rect x="1080" y="40" width="22" height="260" fill="#4a5864"/></g>
+            <use href="#lampG" x="260" y="0"/><use href="#lampG" x="640" y="0"/><use href="#lampG" x="1000" y="0"/>
+            <rect x="0" y="372" width="1200" height="40" fill="url(#belt)"/>
+            <rect x="0" y="412" width="1200" height="18" fill="#2c363f"/>
+            <g fill="#3a454f"><rect x="120" y="430" width="16" height="90"/><rect x="560" y="430" width="16" height="90"/><rect x="1000" y="430" width="16" height="90"/></g>
+            <g><use href="#jar" x="110" y="372"/><use href="#jar" x="240" y="372"/><use href="#jar" x="370" y="372"/><use href="#jar" x="500" y="372"/><use href="#jar" x="630" y="372"/><use href="#jar" x="760" y="372"/><use href="#jar" x="890" y="372"/><use href="#jar" x="1020" y="372"/><use href="#jar" x="1150" y="372"/></g>
+            <rect x="590" y="282" width="80" height="90" rx="10" fill="none" stroke="#45e08f" stroke-width="3" stroke-dasharray="10 8" opacity=".8"/>
+            <rect width="1200" height="520" fill="#06121c" opacity=".18"/>
+          </svg>
+          <div class="hud" id="hud" aria-live="polite">
+            <small id="hudStep">Schritt 3 / 7</small>
+            <span id="hudMain">Chargennummer auf dem Etikett prüfen</span>
+            <span class="next" id="hudNext">Danach: Handschuhe wechseln</span>
+          </div>
+          </div>
+          <div class="tags">
+            <span class="nocam"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h10a2 2 0 0 1 2 2v6a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2zm12 4 6-3v8l-6-3" fill="none" stroke="#14202b" stroke-width="2" stroke-linejoin="round"/><path d="M3 3l18 18" stroke="#c0392b" stroke-width="2.4" stroke-linecap="round"/></svg>Keine Kamera verbaut</span>
+            <div class="langs" role="group" aria-label="Sprache der Einblendung wählen" id="langs"></div>
+          </div>
+        </div>
+        <figcaption class="sample">So sieht ein Arbeitsschritt im Sichtfeld aus. Beispielinhalt – tippen Sie auf eine Sprache.</figcaption>
+      </figure>
     </div>
-  </header>
+  </section>
 
-  <main>
-    <!-- Hero Section -->
-    <section class="hero">
-      <div class="container">
-        <div class="badge">GDPR Compliant &bull; 100% Camera-Free &bull; German Certified</div>
-        <h1>The Smart Glasses Built for the German Boardroom and Beyond</h1>
-        <p>Experience instant teleprompting, live translation, and subtle heads-up alerts on a featherweight titanium frame. No intrusive cameras, 100% GDPR compliant, and engineered for German professionals.</p>
-        <div class="hero-actions">
-          <a href="#preorder" class="btn-primary">Reserve Your Founder Edition — €549</a>
-          <a href="#features" class="btn-secondary">Explore Corporate Privacy Specs</a>
-        </div>
+  <section class="notice band" style="padding-block:18px">
+    <div class="wrap"><p><strong>Sichtwort ist in der Pilotphase.</strong> Wir suchen 3–5 Betriebe in Baden-Württemberg und Bayern, die mit uns starten. Die beschriebenen Funktionen sind der geplante Pilotumfang.</p></div>
+  </section>
+
+  <section class="band" id="nutzen">
+    <div class="wrap">
+      <div class="head">
+        <h2>Unterstützung für die Schicht, nicht Kontrolle</h2>
+        <p>Für die Produktionsleitung zählt, dass jede Anweisung ankommt. Für Betriebsrat und Datenschutz zählt, was die Brille nicht tut. Sichtwort ist für beides gebaut.</p>
       </div>
-    </section>
-
-    <!-- Specs Bar -->
-    <section class="specs-bar">
-      <div class="container specs-grid">
-        <div class="spec-item">
-          <h4>38g</h4>
-          <p>Aerospace Titanium</p>
-        </div>
-        <div class="spec-item">
-          <h4>0 Cameras</h4>
-          <p>100% GDPR Compliant</p>
-        </div>
-        <div class="spec-item">
-          <h4>Micro-LED</h4>
-          <p>Invisible Waveguide HUD</p>
-        </div>
-        <div class="spec-item">
-          <h4>Fielmann / Apollo</h4>
-          <p>Native Prescription Ready</p>
-        </div>
+      <div class="grid">
+        <article class="card">
+          <svg width="40" height="40" viewBox="0 0 40 40" aria-hidden="true"><rect x="3" y="6" width="22" height="16" rx="4" fill="#1652c4"/><rect x="15" y="18" width="22" height="16" rx="4" fill="#45e08f"/><path d="M9 14h10M21 26h10" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/></svg>
+          <h3>Verstanden in der eigenen Sprache</h3>
+          <p>Arbeitsschritte und Sicherheitshinweise erscheinen in der Sprache, die Ihre Mitarbeitenden am besten verstehen. Bei Rückfragen übersetzt Sichtwort auf Knopfdruck.</p>
+        </article>
+        <article class="card">
+          <svg width="40" height="40" viewBox="0 0 40 40" aria-hidden="true"><path d="M8 34V16a3 3 0 0 1 6 0v8V10a3 3 0 0 1 6 0v12V12a3 3 0 0 1 6 0v12-6a3 3 0 0 1 6 0v8c0 6-4 10-10 10h-4c-5 0-8-2-10-4z" fill="#1652c4"/></svg>
+          <h3>Beide Hände für die Arbeit</h3>
+          <p>Kein Tablet am Band, kein Papier im Hygienebereich. Die nächste Anweisung kommt per Sprachbefehl oder Tipp an den Bügel.</p>
+        </article>
+        <article class="card">
+          <svg width="40" height="40" viewBox="0 0 40 40" aria-hidden="true"><rect x="4" y="12" width="22" height="16" rx="4" fill="none" stroke="#1652c4" stroke-width="3"/><path d="M26 18l9-5v14l-9-5" fill="none" stroke="#1652c4" stroke-width="3" stroke-linejoin="round"/><path d="M5 5l30 30" stroke="#c0392b" stroke-width="3.2" stroke-linecap="round"/></svg>
+          <h3>Keine Kamera. Kein Streit.</h3>
+          <p>Sichtwort läuft nur auf Brillen ohne Kamera. Es entstehen keine Fotos und keine Videos – weder von Kolleg:innen noch von Besucher:innen.</p>
+        </article>
+        <article class="card">
+          <svg width="40" height="40" viewBox="0 0 40 40" aria-hidden="true"><path d="M20 4l13 5v10c0 8-6 14-13 17C13 33 7 27 7 19V9z" fill="#1652c4"/><path d="M14 20l4 4 8-9" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <h3>Gebaut für die Mitbestimmung</h3>
+          <p>Keine Auswertung von Leistung oder Verhalten einzelner Personen. Dazu liefern wir Vorlagen für Betriebsvereinbarung und Datenschutz-Folgenabschätzung mit.</p>
+        </article>
       </div>
-    </section>
-
-    <!-- Core Features Section -->
-    <section class="features" id="features">
-      <div class="container">
-        <div class="section-header">
-          <h2>Intelligence in Plain Sight. Zero Privacy Compromise.</h2>
-          <p>Engineered to resolve the fundamental friction holding smart eyewear back in Germany.</p>
-        </div>
-
-        <div class="feature-grid">
-          <!-- Card 1 -->
-          <div class="feature-card">
-            <div class="feature-icon">&check;</div>
-            <h3>100% Camera-Free & Works Council Compliant</h3>
-            <p>Unlike conventional smart glasses that record bystanders and trigger office bans, AuraVision G1 features zero optical cameras or audio eavesdropping. Fully compliant with German <em>Betriebsrat</em> workplace regulations and Section 201a privacy requirements. Wear it freely into client boardrooms and production floors.</p>
-          </div>
-
-          <!-- Card 2 -->
-          <div class="feature-card">
-            <div class="feature-icon">&#9678;</div>
-            <h3>Invisible Micro-LED Optical Waveguide Display</h3>
-            <p>Powered by a dual-eye monochrome green waveguide display, your critical notes, teleprompter cues, and turn-by-turn navigation float discreetly at infinite focus. Only you can see the display—it remains entirely invisible to observers sitting directly across the table.</p>
-          </div>
-
-          <!-- Card 3 -->
-          <div class="feature-card">
-            <div class="feature-icon">&harr;</div>
-            <h3>Real-Time Multilingual Translation & Teleprompting</h3>
-            <p>Deliver high-stakes keynote presentations without ever looking down at cue cards. In cross-border negotiations, read live real-time German-to-English or French-to-German text translations floating seamlessly beside your conversation partner.</p>
-          </div>
-
-          <!-- Card 4 -->
-          <div class="feature-card">
-            <div class="feature-icon">&oplus;</div>
-            <h3>Master Optician Prescription & Bauhaus Titanium</h3>
-            <p>Weighing just 38 grams, AuraVision G1 is forged from hypoallergenic aerospace titanium. Designed in the minimalist Bauhaus tradition, it blends indistinguishably into high-end executive eyewear and pairs seamlessly with custom prescription lenses from top German optical partners.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Comparison Table Section -->
-    <section class="comparison">
-      <div class="container">
-        <div class="section-header">
-          <h2>How AuraVision G1 Compares</h2>
-          <p>Tailored specifically for European regulatory standards and executive workflow.</p>
-        </div>
-        <div class="table-wrapper">
-          <table>
-            <thead>
-              <tr>
-                <th>Feature / Dimension</th>
-                <th>Ray-Ban Meta</th>
-                <th>AR Goggles (XREAL)</th>
-                <th>AuraVision G1</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr class="highlight">
-                <td>German Privacy & Works Council</td>
-                <td>High friction (office bans)</td>
-                <td>Sensors present</td>
-                <td>100% Certified Compliant</td>
-              </tr>
-              <tr>
-                <td>Built-in Camera</td>
-                <td>Yes (12 MP, LED indicator)</td>
-                <td>Tracking sensors</td>
-                <td>None (Camera-Free)</td>
-              </tr>
-              <tr>
-                <td>Weight & Form Factor</td>
-                <td>~50g plastic frame</td>
-                <td>75g–90g bulky visor</td>
-                <td>38g Aerospace Titanium</td>
-              </tr>
-              <tr>
-                <td>Discreet Heads-Up Display</td>
-                <td>None (audio only)</td>
-                <td>Color Birdbath (cable tether)</td>
-                <td>Monochrome Waveguide HUD</td>
-              </tr>
-              <tr>
-                <td>Prescription Optical Integration</td>
-                <td>Third-party ordering</td>
-                <td>Clip-in insert</td>
-                <td>Certified Optician Partners</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </section>
-
-    <!-- Pre-Order CTA Section -->
-    <section class="cta-section" id="preorder">
-      <div class="container cta-box">
-        <h2>Elevate Your Daily Focus with German Engineered Optical AI</h2>
-        <p>Backed by a 30-day corporate trial, German customer support, and full GDPR compliance documentation.</p>
-        <a href="#preorder" class="btn-primary">Pre-Order AuraVision G1 — €549</a>
-      </div>
-    </section>
-  </main>
-
-  <!-- Footer -->
-  <footer>
-    <div class="container footer-inner">
-      <div class="copyright">&copy; 2026 AuraVision Technologies GmbH. All rights reserved.</div>
-      <div class="footer-note">Demo prototype developed for venture team coordination demonstration.</div>
     </div>
-  </footer>
+  </section>
 
+  <section class="band" id="funktionen" style="padding-top:0">
+    <div class="wrap">
+      <div class="head">
+        <h2>Was im Pilot enthalten ist</h2>
+        <p>Fünf Funktionen, die direkt an der Linie helfen. Ihre vorhandenen Anweisungen sind der Ausgangspunkt.</p>
+      </div>
+      <dl class="feat">
+        <div><dt>Anweisungen im Sichtfeld</dt><dd>Vorhandene Arbeitsanweisungen (PDF, Word) werden in kurze Schritte zerlegt und Schritt für Schritt eingeblendet.</dd></div>
+        <div><dt>Unterweisung mit Bestätigung</dt><dd>Sicherheits- und Hygieneunterweisungen in der Muttersprache, mit Bestätigung durch die Mitarbeitenden.</dd></div>
+        <div><dt>Übersetzen auf Knopfdruck</dt><dd>Push-to-Talk zwischen Deutsch und den Sprachen Ihres Teams. Gesprochenes wird nur für die Übersetzung verarbeitet und nicht gespeichert.</dd></div>
+        <div><dt>Checklisten per Sprache</dt><dd>Prüfpunkte abhaken, ohne die Handschuhe auszuziehen.</dd></div>
+        <div><dt>Datenschutz von Anfang an</dt><dd>Datenhaltung in der EU, keine Kamera, keine Leistungsauswertung pro Person.</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <section class="band" id="fuer-wen" style="padding-top:0">
+    <div class="wrap">
+      <div class="head"><h2>Zwei Seiten, ein Ziel</h2></div>
+      <div class="two">
+        <article class="who">
+          <span class="lab">Produktions- und Werksleitung</span>
+          <h3>Neue Kolleg:innen schneller sicher an der Linie</h3>
+          <p>Neue Kolleg:innen sind schneller sicher an der Linie, wenn sie jede Anweisung verstehen. Sichtwort zeigt den nächsten Arbeitsschritt im Sichtfeld, in der richtigen Sprache, und übersetzt Rückfragen auf Knopfdruck. Sie importieren Ihre vorhandenen Anweisungen, wir kümmern uns um Einrichtung und Schulung.</p>
+          <div class="btns">
+            <a class="btn primary" href="#anfrage" data-type="pilot">Pilotplatz anfragen</a>
+            <a class="btn outline" href="#anfrage" data-type="demo">Demo-Termin vereinbaren</a>
+          </div>
+        </article>
+        <article class="who">
+          <span class="lab">Betriebsrat und Datenschutz</span>
+          <h3>Alle Fakten auf den Tisch</h3>
+          <p>Sichtwort ist so gebaut, dass es zur Unterstützung taugt und nicht zur Kontrolle. Die Brillen haben keine Kamera. Es gibt keine Auswertung von Leistung oder Verhalten einzelner Personen, und Sprache wird nur für die Übersetzung verarbeitet. Wir legen offen, welche Daten wo verarbeitet werden, und stellen Vorlagen für Betriebsvereinbarung und Datenschutz-Folgenabschätzung bereit. Die Entscheidung bleibt bei Ihnen.</p>
+          <div class="btns">
+            <a class="btn primary" href="#anfrage" data-type="unterlagen">Unterlagen anfordern</a>
+            <a class="btn outline" href="#anfrage" data-type="rueckruf">Rückruf vereinbaren</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="band formband" id="anfrage">
+    <div class="wrap">
+      <div class="head">
+        <h2>Testen Sie Sichtwort in Ihrer Schicht</h2>
+        <p>Sagen Sie uns kurz, worum es geht. Wir melden uns mit einem Terminvorschlag für Produktion, Arbeitssicherheit und Betriebsrat.</p>
+      </div>
+      <form id="form" novalidate>
+        <fieldset class="seg">
+          <legend>Ihr Anliegen</legend>
+          <label><input type="radio" name="type" value="pilot" checked> Pilotplatz</label>
+          <label><input type="radio" name="type" value="demo"> Demo-Termin</label>
+          <label><input type="radio" name="type" value="unterlagen"> Unterlagen</label>
+          <label><input type="radio" name="type" value="rueckruf"> Rückruf</label>
+        </fieldset>
+        <div class="fields">
+          <label class="f">Name<input type="text" id="name" name="name" autocomplete="name" required></label>
+          <label class="f">E-Mail<input type="email" id="email" name="email" autocomplete="email" required></label>
+          <label class="f">Betrieb<input type="text" id="company" name="company" autocomplete="organization"></label>
+          <label class="f">Rolle
+            <select id="role" name="role">
+              <option>Produktions- oder Werksleitung</option>
+              <option>Arbeitssicherheit</option>
+              <option>Personal</option>
+              <option>Betriebsrat</option>
+              <option>Datenschutz</option>
+              <option>Andere</option>
+            </select>
+          </label>
+          <label class="f full">Was möchten Sie wissen oder ausprobieren? (optional)<textarea id="msg" name="msg"></textarea></label>
+        </div>
+        <div class="btns"><button class="btn primary" type="submit">Anfrage senden</button></div>
+        <p class="err" id="err" role="alert"></p>
+        <p class="hint">Hinweis: Dies ist ein Prototyp. Eingaben werden nicht übermittelt und nicht gespeichert.</p>
+        <div class="ok" id="ok" role="status"></div>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer class="band" style="padding-block:24px">
+  <div class="wrap">
+    <span>Sichtwort – Verstehen. Nicht filmen.</span>
+    <span>Lehr- und Demo-Prototyp, keine echte Produktseite. „Sichtwort“ ist ein Arbeitsname.</span>
+  </div>
+</footer>
+
+<script>
+{
+  const L = [
+    {code:'de', label:'DE', name:'Deutsch', dir:'ltr', step:'Schritt 3 / 7', main:'Chargennummer auf dem Etikett prüfen', next:'Danach: Handschuhe wechseln'},
+    {code:'ro', label:'RO', name:'Română', dir:'ltr', step:'Pasul 3 / 7', main:'Verifică numărul lotului pe etichetă', next:'Apoi: schimbă mănușile'},
+    {code:'pl', label:'PL', name:'Polski', dir:'ltr', step:'Krok 3 / 7', main:'Sprawdź numer partii na etykiecie', next:'Potem: zmień rękawice'},
+    {code:'tr', label:'TR', name:'Türkçe', dir:'ltr', step:'Adım 3 / 7', main:'Etiketteki parti numarasını kontrol et', next:'Sonra: eldivenleri değiştir'},
+    {code:'uk', label:'UA', name:'Українська', dir:'ltr', step:'Крок 3 / 7', main:'Перевір номер партії на етикетці', next:'Потім: зміни рукавички'},
+    {code:'ar', label:'AR', name:'العربية', dir:'rtl', step:'الخطوة 3 / 7', main:'تحقق من رقم الدفعة على الملصق', next:'بعد ذلك: غيّر القفازات'}
+  ];
+  const langs = document.getElementById('langs');
+  const hud = document.getElementById('hud');
+  const hs = document.getElementById('hudStep'), hm = document.getElementById('hudMain'), hn = document.getElementById('hudNext');
+  langs.innerHTML = L.map((l,i) => `<button type="button" data-i="${i}" aria-pressed="${i===0}" lang="${l.code}" title="${l.name}">${l.label}</button>`).join('');
+  const setLang = i => {
+    const l = L[i];
+    hud.classList.add('fade');
+    setTimeout(() => {
+      hs.textContent = l.step; hm.textContent = l.main; hn.textContent = l.next;
+      hud.setAttribute('lang', l.code); hud.setAttribute('dir', l.dir);
+      hud.classList.remove('fade');
+    }, 160);
+    langs.querySelectorAll('button').forEach(b => b.setAttribute('aria-pressed', String(Number(b.dataset.i) === i)));
+  };
+  langs.addEventListener('click', e => { const b = e.target.closest('button'); if (b) setLang(Number(b.dataset.i)); });
+
+  const menuBtn = document.getElementById('menuBtn'), nav = document.getElementById('mainNav');
+  menuBtn.addEventListener('click', () => {
+    const open = nav.classList.toggle('open');
+    menuBtn.setAttribute('aria-expanded', String(open));
+    menuBtn.textContent = open ? 'Schließen' : 'Menü';
+  });
+  nav.addEventListener('click', e => {
+    if (e.target.closest('a')) { nav.classList.remove('open'); menuBtn.setAttribute('aria-expanded','false'); menuBtn.textContent = 'Menü'; }
+  });
+
+  document.querySelectorAll('a[data-type]').forEach(a => a.addEventListener('click', () => {
+    const r = document.querySelector(`input[name=type][value="${a.dataset.type}"]`);
+    if (r) r.checked = true;
+  }));
+
+  const form = document.getElementById('form'), err = document.getElementById('err'), ok = document.getElementById('ok');
+  const labels = {pilot:'Pilotplatz', demo:'Demo-Termin', unterlagen:'Unterlagen für Betriebsrat & Datenschutz', rueckruf:'Rückruf'};
+  form.addEventListener('submit', e => {
+    e.preventDefault();
+    err.textContent = ''; ok.classList.remove('show');
+    const nameEl = document.getElementById('name'), emailEl = document.getElementById('email');
+    const name = nameEl.value.trim(), email = emailEl.value.trim();
+    if (!name) { err.textContent = 'Bitte geben Sie Ihren Namen an.'; nameEl.focus(); return; }
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { err.textContent = 'Bitte geben Sie eine gültige E-Mail-Adresse an.'; emailEl.focus(); return; }
+    const type = form.querySelector('input[name=type]:checked').value;
+    ok.textContent = `Danke, ${name}. Ihre Anfrage „${labels[type]}“ ist hier nur als Demo erfasst – in diesem Prototyp wird nichts übermittelt.`;
+    ok.classList.add('show');
+  });
+}
+</script>
 </body>
 </html>

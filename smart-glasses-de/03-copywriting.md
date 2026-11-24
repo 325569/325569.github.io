@@ -1,50 +1,125 @@
-# Marketing Copy: AuraVision G1 Smart Glasses
+# Marketing-Copy: Sichtwort (Arbeitsname)
+
+> Basis: `02-strategy.md`. Sprache: Deutsch (Zielmarkt Deutschland). Kommentare in *kursiv* erklären die Logik und den Bezug zur Strategie.
+> „Sichtwort“ ist ein Platzhalter; Marke und Domain sind ungeprüft.
+
+**Regeln für diese Copy (Lehre aus dem GridMind-Review):**
+- Nichts als fertig beschreiben, was noch nicht gebaut oder geprüft ist. Wir sind in der **Pilotphase**.
+- Keine erfundenen Zahlen, Kundenstimmen oder Ergebnisse.
+- Keine Zertifizierung behaupten, die es nicht gibt („betriebsratstauglich“ = wir liefern Unterlagen, nicht: „vom Betriebsrat genehmigt“).
+- Keine internen Begriffe (B2B, SaaS, DSFA ohne Erklärung) in Texten für Endnutzer.
+
+---
 
 ## Slogan
-**Intelligence in Plain Sight. Zero Privacy Compromise.**
 
-## Website Copy
+**„Verstehen. Nicht filmen.“**
 
-### Hero Section
-* **Main Headline**: The Smart Glasses Built for the German Boardroom and Beyond.
-* **Sub-Headline**: Experience instant teleprompting, live translation, and subtle heads-up alerts on a featherweight titanium frame. No intrusive cameras, 100% GDPR compliant, and engineered for German professionals.
-* **Primary Call to Action (CTA)**: Reserve Your Founder Edition
-* **Secondary CTA**: Explore Corporate Privacy Specs
+*Zwei Wörter für den Nutzen, zwei für den Unterschied. Greift die deutsche Kamera-Debatte direkt auf (Strategie Abschnitt 1) und dreht sie zum Vorteil.*
+
+Alternative für Industriekunden: **„Die Schicht spricht deine Sprache.“**
 
 ---
 
-### Core Value Propositions (Features & Selling Points)
+## Website-Copy
 
-#### 1. 100% Camera-Free & Works Council Compliant
-* **Heading**: Focus on Work, Not Privacy Inquiries.
-* **Copy**: Unlike conventional smart glasses that record bystanders and trigger office bans, AuraVision G1 features zero optical cameras or audio eavesdropping. It is fully compliant with GDPR and German *Betriebsrat* (Works Council) workplace regulations. Wear it freely into client boardrooms, production floors, and sensitive negotiations without friction.
+### Hero
 
-#### 2. Invisible Micro-LED Optical Heads-Up Display
-* **Heading**: Information Floating in Your Natural Line of Sight.
-* **Copy**: Powered by a dual-eye monochrome green waveguide display, your critical notes, speech teleprompter cues, and turn-by-turn navigation float discreetly at infinite focus. Only you can see the display—it remains entirely invisible to observers sitting directly across from you.
+**Eyebrow:** Kamerafreie Smart Glasses für die Produktion
 
-#### 3. Real-Time Multilingual Translation & Teleprompting
-* **Heading**: Speak With Unwavering Confidence Across European Markets.
-* **Copy**: Deliver high-stakes keynote presentations without ever looking down at cue cards. In cross-border negotiations, read live real-time German-to-English or French-to-German text translations floating seamlessly beside your conversation partner.
+**H1:** Jede Anweisung verstanden. In jeder Sprache. Ohne Kamera.
 
-#### 4. Master Optician Prescription Support & Bauhaus Titanium Craftsmanship
-* **Heading**: German Optical Precision Meets Ultralight Design.
-* **Copy**: Weighing just 38 grams, AuraVision G1 is forged from hypoallergenic aerospace titanium. Designed in the minimalist Bauhaus tradition, it blends indistinguishably into high-end executive eyewear and pairs seamlessly with custom prescription lenses (*Sehstärke*) from top German optical partners including Fielmann and Apollo.
+**Subline:**
+Sichtwort bringt Arbeitsanweisungen, Checklisten und Live-Übersetzung direkt ins Sichtfeld Ihrer Mitarbeitenden – auf Brillen ohne Kamera. Die Hände bleiben frei, niemand wird gefilmt, und Ihre Daten bleiben in der EU.
+
+**Primärer CTA:** Pilotplatz anfragen
+**Sekundärer CTA:** Unterlagen für Betriebsrat & Datenschutz
+
+*Die Subline nennt drei konkrete Fakten (Hände frei, keine Kamera, EU) statt Schlagworte. Der zweite CTA spricht den zweiten Entscheider an, den Betriebsrat (Strategie Abschnitt 2, Kauf-Logik).*
 
 ---
 
-### Primary Call to Action (CTA) Box
-* **Banner Headline**: Elevate Your Daily Focus with German Engineered Optical AI.
-* **Supporting Text**: Backed by a 30-day corporate trial, German customer support, and full GDPR compliance documentation.
-* **Button Text**: Pre-Order AuraVision G1 — €549
+### Nutzenversprechen
+
+**1. Verstanden in der eigenen Sprache**
+Arbeitsschritte und Sicherheitshinweise erscheinen in der Sprache, die Ihre Mitarbeitenden am besten verstehen. Bei Rückfragen übersetzt Sichtwort auf Knopfdruck zwischen Schichtleitung und Team.
+
+**2. Beide Hände für die Arbeit**
+Kein Tablet am Band, kein Papier im Hygienebereich. Die nächste Anweisung kommt per Sprachbefehl oder Tipp an den Bügel.
+
+**3. Keine Kamera. Kein Streit.**
+Sichtwort läuft nur auf Brillen ohne Kamera. Es entstehen keine Fotos und keine Videos – weder von Kolleg:innen noch von Besucher:innen.
+
+**4. Gebaut für die Mitbestimmung**
+Keine Auswertung von Leistung oder Verhalten einzelner Personen. Dazu liefern wir Vorlagen für Betriebsvereinbarung und Datenschutz-Folgenabschätzung mit.
+
+*Punkte 1 und 2 sprechen die Produktionsleitung an, Punkte 3 und 4 Betriebsrat und Datenschutz. Das spiegelt die zwei Entscheider aus Strategie Abschnitt 2.*
 
 ---
 
-## Presentation Key Points (Pitch Deck Outline)
-1. **The Problem**: Smart eyewear adoption in Germany has hit a wall because consumers and corporate Works Councils reject intrusive cameras and potential privacy violations under strict GDPR laws.
-2. **The Problem**: Professionals suffer from smartphone notification fatigue and disjointed eye contact during crucial executive meetings and client presentations.
-3. **The Solution**: AuraVision G1 provides an ultra-lightweight, camera-free optical heads-up display built directly into premium everyday prescription eyewear.
-4. **The Differentiation**: By eliminating cameras entirely and utilizing a micro-LED waveguide display, AuraVision G1 is the only smart glass 100% certified for German corporate workplace use.
-5. **The Differentiation**: Forged in 38g minimalist titanium with native prescription lens compatibility through Germany's top optician networks (Fielmann / Apollo).
-6. **The User Benefit**: Professionals gain hands-free teleprompting, real-time live multilingual translation, and glanceable navigation while maintaining complete presence and trust.
-7. **The Commercial Opportunity**: Capturing Germany's high-income knowledge worker base first, followed by European enterprise expansion across DACH corporate sectors.
+### Funktionen
+
+- **Anweisungen im Sichtfeld** – Vorhandene Arbeitsanweisungen (PDF, Word) werden in kurze Schritte zerlegt und Schritt für Schritt eingeblendet.
+- **Unterweisung mit Bestätigung** – Sicherheits- und Hygieneunterweisungen in der Muttersprache, mit Bestätigung durch die Mitarbeitenden.
+- **Übersetzen auf Knopfdruck** – Push-to-Talk zwischen Deutsch und den Sprachen Ihres Teams. Gesprochenes wird nur für die Übersetzung verarbeitet und nicht gespeichert.
+- **Checklisten per Sprache** – Prüfpunkte abhaken, ohne die Handschuhe auszuziehen.
+- **Datenschutz von Anfang an** – Datenhaltung in der EU, keine Kamera, keine Leistungsauswertung pro Person.
+
+*Jede Funktion ist als geplanter Pilotumfang formuliert. Die Website sagt sichtbar, dass Sichtwort in der Pilotphase ist (siehe Footer/Hinweis im Prototyp).*
+
+---
+
+### Zielgruppen
+
+**Für Produktions- und Werksleitung** – sachlich, Nutzen im Alltag
+
+> Neue Kolleg:innen sind schneller sicher an der Linie, wenn sie jede Anweisung verstehen. Sichtwort zeigt den nächsten Arbeitsschritt im Sichtfeld, in der richtigen Sprache, und übersetzt Rückfragen auf Knopfdruck. Sie importieren Ihre vorhandenen Anweisungen, wir kümmern uns um Einrichtung und Schulung.
+
+**Für Betriebsrat und Datenschutz** – transparent, ohne Marketingsprache
+
+> Sichtwort ist so gebaut, dass es zur Unterstützung taugt und nicht zur Kontrolle. Die Brillen haben keine Kamera. Es gibt keine Auswertung von Leistung oder Verhalten einzelner Personen, und Sprache wird nur für die Übersetzung verarbeitet. Wir legen offen, welche Daten wo verarbeitet werden, und stellen Vorlagen für Betriebsvereinbarung und Datenschutz-Folgenabschätzung bereit. Die Entscheidung bleibt bei Ihnen.
+
+*Der zweite Text verspricht bewusst nichts über die Zustimmung – das hat der GridMind-Review als Fehler markiert (Annahme als Fakt). Strategie Abschnitt 5, Punkt 4.*
+
+---
+
+### CTAs
+
+**Betriebe**
+- Haupt-CTA: **„Testen Sie Sichtwort in Ihrer Schicht“** (Button: *Pilotplatz anfragen*)
+- Neben-CTA: **„Erst einmal sehen, wie es aussieht“** (Button: *Demo-Termin vereinbaren*)
+
+**Betriebsrat & Datenschutz**
+- Haupt-CTA: **„Alle Fakten auf den Tisch“** (Button: *Unterlagen anfordern*)
+- Neben-CTA: **„Ihre Fragen direkt klären“** (Button: *Rückruf vereinbaren*)
+
+---
+
+## Pitch-Outline (5 Folien, für Gespräche mit Pilotbetrieben)
+
+**Folie 1 – Das Problem**
+- In der Lebensmittelherstellung haben fast 44 % der Beschäftigten keinen deutschen Pass (Bertelsmann Stiftung 2026). Anweisungen und Unterweisungen kommen oft nicht an.
+- Die Hände sind belegt, Papier und Tablets passen nicht in Hygienebereiche.
+- Smart Glasses mit Kamera sind in Deutschland umstritten: Strafanzeige gegen Hersteller und Händler, 76 % wollen nicht gefilmt werden (Bitkom 2026).
+
+**Folie 2 – Die Lösung**
+- Sichtwort: Anweisungen, Checklisten und Übersetzung im Sichtfeld – auf Brillen ohne Kamera.
+- Reine Software auf vorhandener Hardware (zum Start: Even G2 über das Enterprise SDK, **Partnerschaft noch nicht vereinbart**).
+- Datenhaltung in der EU, keine Leistungsauswertung, Unterlagen für den Betriebsrat.
+
+**Folie 3 – So läuft ein Pilot**
+- 3 Monate, 10–20 Brillen, ein klar umrissener Bereich.
+- Wir importieren Ihre Anweisungen, richten ein, schulen.
+- Erfolgsmessung vorher gemeinsam festgelegt, nur auf Team- oder Prozessebene.
+
+**Folie 4 – Warum Sichtwort**
+- Gegenüber Kamera-Lösungen: deutlich weniger Konfliktpotenzial mit Betriebsrat und Datenschutz.
+- Gegenüber großen Industrie-Plattformen: schlank genug für 50–500 Beschäftigte.
+- Gegenüber Papier und Tablet: Hände frei, eigene Sprache, immer aktuell.
+
+**Folie 5 – Nächster Schritt**
+- Gemeinsamer Termin mit Produktion, Arbeitssicherheit und Betriebsrat.
+- Prüfung der Arbeitsplätze (z. B. Schutzbrillenpflicht).
+- Pilotvertrag mit festem Preis und klarer Exit-Option.
+
+*Die Deckpunkte enthalten nur belegte Marktzahlen aus der Recherche – mit Quellenangabe. Keine Sichtwort-Ergebnisse, weil es noch keine gibt. Folie 5 nimmt die offene Schutzbrillen-Frage aus Strategie Abschnitt 5 aktiv auf, statt sie zu verstecken.*
